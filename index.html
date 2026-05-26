@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Carpe Delta Limited | Data Consulting</title>
+  <link rel="icon" type="image/png" href="./images/CD only.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700&display=swap');
+
+    :root {
+      --navy: #00153E;
+      --slate: #66738B;
+      --whisper: #F2F4F7;
+      --teal: #78B3AE;
+      --eucalyptus: #9EB8A8;
+      --copper: #BA844E;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    /* ===== NAVIGATION ===== */
+    header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,21,62,0.08);
+    }
+    .nav-inner {
+      max-width: 980px;
+      margin: 0;
+      padding: 0 20px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 120px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 78px;
+      height: 100px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .nav-name {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 16px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 520px;
+      background: url('images/hero_leaf.png') center / cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 66.67%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.73);
+      border-radius: 0 8px 8px 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 66.67%;
+      margin: 0;
+      padding: 80px 0 60px 48px;
+    }
+    .hero-box {
+      /* content wrapper only */
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 58px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .hero h2 {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--teal);
+      color: #ffffff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      opacity: 0.88;
+    }
+
+    /* ===== SHARED SECTION STYLES ===== */
+    .section {
+      padding: 80px 20px 80px 48px;
+    }
+    .section-inner {
+      max-width: 980px;
+      margin: 0;
+    }
+    .section-heading {
+      font-size: 55px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+    .body-text {
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+    .body-text p + p {
+      margin-top: 20px;
+    }
+
+    /* ===== WHAT WE DO ===== */
+    .bg-eucalyptus { background: var(--eucalyptus); }
+    .bg-whisper    { background: var(--whisper); }
+
+    /* ===== HOW WE CAN HELP ===== */
+    .services-intro {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 110px;
+    }
+    .services-row {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .service-card {
+      flex: 1;
+      min-width: 0;
+      padding: 0 16px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 474px;
+    }
+    .service-card svg {
+      flex-shrink: 0;
+    }
+    .service-card .chevron-img {
+      flex-shrink: 0;
+    }
+    /* Per-card icon sizing matching Wix pixel dimensions */
+    .card-navy svg     { width: 76px;  height: 84px;  margin-top: 66px; margin-bottom: 41px; }
+    .card-slate svg    { width: 67px;  height: 87px;  margin-top: 63px; margin-bottom: 41px; }
+    .card-white svg    { width: 94px;  height: 94px;  margin-top: 59px; margin-bottom: 38px; transform: scaleX(-1); }
+    .card-teal svg     { width: 46px;  height: 57px;  margin-top: 83px; margin-bottom: 51px; }
+    .chevron-img       { width: 117px; height: 76px;  margin-top: 68px; margin-bottom: 47px; }
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .service-card p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .card-navy        { background: var(--navy); }
+    .card-navy h3,
+    .card-navy p      { color: #ffffff; }
+    .card-slate       { background: var(--slate); }
+    .card-slate h3,
+    .card-slate p     { color: #ffffff; }
+    .card-white       { background: #ffffff; }
+    .card-white h3,
+    .card-white p     { color: var(--navy); }
+    .card-eucalyptus  { background: var(--eucalyptus); }
+    .card-eucalyptus h3,
+    .card-eucalyptus p { color: var(--navy); }
+    .card-teal        { background: var(--teal); }
+    .card-teal h3,
+    .card-teal p      { color: var(--navy); }
+
+    /* ===== WHO WE ARE ===== */
+    .about-text {
+      max-width: 897px;
+    }
+    .about-photo-link {
+      display: block;
+      width: fit-content;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      margin-left: 147px;
+    }
+    .about-photo {
+      display: block;
+      width: 598px;
+      height: 450px;
+      object-fit: cover;
+    }
+    .about-quote {
+      max-width: 884px;
+      background: var(--navy);
+      border-radius: 0 30px 0 30px;
+      padding: 40px 50px;
+    }
+    .about-quote p {
+      font-size: 20px;
+      color: #ffffff;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .about-quote p + p {
+      margin-top: 16px;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form {
+      width: 693px;
+      max-width: 100%;
+    }
+    .form-field {
+      margin-bottom: 20px;
+    }
+    .form-field label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--slate);
+      border-radius: 4px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 16px;
+      color: var(--navy);
+      background: #ffffff;
+    }
+    .form-field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: 2px solid var(--teal);
+      border-color: var(--teal);
+    }
+    .btn-submit {
+      background: var(--navy);
+      color: #ffffff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .btn-submit:hover {
+      opacity: 0.88;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      padding: 60px 20px 60px 0;
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0;
+      padding-left: 48px;
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .footer-logo {
+      max-height: 60px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    .footer-brand {
+      overflow: visible;
+    }
+    .footer-name {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn-footer {
+      display: inline-block;
+      background: var(--teal);
+      color: #ffffff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .btn-footer:hover { opacity: 0.88; }
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 8px;
+    }
+    .footer-right a {
+      font-size: 14px;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .footer-right a:hover { opacity: 0.8; }
+    .footer-linkedin {
+      display: block;
+      margin-top: 4px;
+      text-decoration: none !important;
+    }
+    .footer-linkedin img {
+      width: 29px;
+      height: 25px;
+      object-fit: cover;
+      display: block;
+    }
+    .footer-copy {
+      font-size: 14px;
+      color: #ffffff;
+      margin-top: 4px;
+    }
+
+    /* ===== SCROLL ANCHOR OFFSET ===== */
+    #services, #about, #contact, #what-we-do, #why {
+      scroll-margin-top: 136px;
+    }
+
+    /* ===== FADE-IN-UP ANIMATION ===== */
+    .fade-target {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-target.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAV RESPONSIVE ===== */
+    @media (max-width: 860px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 14px; }
+      .nav-name { font-size: 36px; }
+    }
+    @media (max-width: 680px) {
+      .nav-inner { padding: 0 12px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 12px; white-space: nowrap; }
+      .nav-name { font-size: 28px; }
+      .nav-logo { width: 52px; height: 66px; }
+    }
+    @media (max-width: 520px) {
+      .nav-links a { font-size: 0.78rem; }
+      .nav-links { gap: 8px; }
+    }
+
+    /* ===== RESPONSIVE LAYOUT FIXES ===== */
+    @media (max-width: 768px) {
+      .services-row {
+        flex-direction: column;
+      }
+      .service-card {
+        width: 100%;
+        flex: none;
+      }
+      .about-photo-link {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+      }
+      .about-photo {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    /* ===== HERO MOBILE ===== */
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 480px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* On mobile replace the left-aligned overlay with a centred
+         box that floats over the fern image */
+      .hero::before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%;
+        height: auto;
+        min-height: 78%;
+        border-radius: 8px;
+      }
+
+      /* Text container fills the centred overlay box */
+      .hero-inner {
+        width: 85%;
+        padding: 48px 32px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Scale heading down to fit without wrapping awkwardly */
+      .hero h1 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        margin-bottom: 16px;
+      }
+
+      /* Subheading stays readable */
+      .hero h2 {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+
+      .section-heading {
+        font-size: clamp(32px, 7vw, 55px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+    }
+
+    /* ===== FOOTER RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .footer-inner {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .footer-left {
+        width: 100%;
+      }
+      .footer-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    @media (max-width: 480px) {
+      .nav-toggle {
+        display: flex;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 16px 48px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(0,21,62,0.1);
+        z-index: 99;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <img src="images/Magnifying glass logo.png" alt="Carpe Delta logo featuring interlocked C and D letters in a magnifying glass" class="nav-logo">
+      <span class="nav-name">Carpe Delta</span>
+    </a>
+    <nav aria-label="Site">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-box">
+      <h1>Smarter Decisions<br>Positive Change<br>Powered by Data and AI</h1>
+      <h2>Helping businesses unlock clarity, growth and efficiency</h2>
+      <a href="#contact" class="btn">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section id="what-we-do" class="section bg-eucalyptus fade-target">
+  <div class="section-inner">
+    <h2 class="section-heading">What we do</h2>
+    <div class="body-text">
+      <p><strong>At Carpe Delta we're passionate about helping businesses unlock the full potential of their data.</strong></p>
+      <p>Customer data, sales data, inventory data all contribute to <strong>the story of your business</strong>, but connecting those pieces in a way that's useful can be a real challenge.&nbsp; At Carpe Delta we turn messy, complex, and disconnected information into <strong>clear insights</strong> that support smarter decisions and meaningful progress.&nbsp;</p>
+      <p>Too often valuable data goes to waste; trapped in spreadsheets, overlooked in silos, or lost in a sea of numbers. We help businesses <strong>get their data in order</strong> so they can <strong>save time, spot opportunities, make informed choices,</strong> and get the <strong>foundations right</strong> to take advantage of AI.</p>
+      <p>Every business is unique, so we work closely with you to understand your goals and challenges, then design and deliver tailored, data-centric solutions that make a real difference.</p>
+      <p><strong>We're not just here to advise, we help make it happen.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE CAN HELP -->
+<section id="services" class="section bg-whisper fade-target">
+  <div class="section-inner">
+    <h2 class="section-heading">How we can help</h2>
+    <p class="services-intro">Explore our range of data consulting services designed to address the needs of your business</p>
+    <div class="services-row">
+
+      <!-- STRUCTURE -->
+      <div class="service-card card-navy fade-target">
+        <svg viewBox="36 29.5 128 141" xmlns="http://www.w3.org/2000/svg" aria-label="Database" role="img">
+          <path fill="#FFFFFF" d="M143.688 35.548C131.96 31.648 116.444 29.5 100 29.5s-31.96 2.148-43.688 6.048C39.523 41.129 36 48.364 36 53.45v93.1c0 15.724 32.196 23.95 64 23.95s64-8.227 64-23.95v-93.1c0-5.086-3.523-12.321-20.312-17.902zM156 100c0 2.493-3.866 6.691-14.764 10.32-10.903 3.631-25.548 5.63-41.236 5.63s-30.333-2-41.236-5.63C47.866 106.691 44 102.493 44 100V65.641c2.97 1.99 6.966 3.935 12.312 5.712C68.04 75.252 83.556 77.4 100 77.4s31.96-2.147 43.688-6.047c5.345-1.777 9.341-3.722 12.312-5.712V100zm-56-62.5c34.185 0 56 9.447 56 15.95S134.185 69.4 100 69.4s-56-9.446-56-15.95S65.815 37.5 100 37.5zm41.236 119.37c-10.903 3.631-25.548 5.63-41.236 5.63s-30.333-2-41.236-5.63C47.866 153.241 44 149.042 44 146.55v-34.33c11.521 7.735 33.849 11.73 56 11.73s44.479-3.995 56-11.73v34.33c0 2.492-3.866 6.691-14.764 10.32z"></path>
+        </svg>
+        <h3>STRUCTURE</h3>
+        <p>Set up secure and reliable data foundations - clean, connected and built to deliver answers you can trust</p>
+      </div>
+
+      <!-- MEASUREMENT -->
+      <div class="service-card card-slate fade-target">
+        <svg viewBox="56 43 88 114" xmlns="http://www.w3.org/2000/svg" aria-label="Bar chart" role="img">
+          <path fill="#FFFFFF" d="M104 86.75V153a4 4 0 0 1-8 0V86.75a4 4 0 0 1 8 0zM140 43a4 4 0 0 0-4 4v106a4 4 0 0 0 8 0V47a4 4 0 0 0-4-4zm-80 79.5a4 4 0 0 0-4 4V153a4 4 0 0 0 8 0v-26.5a4 4 0 0 0-4-4z"></path>
+        </svg>
+        <h3>MEASUREMENT</h3>
+        <p>Define the metrics that matter and structure your data so you can query performance instantly, without waiting for a report or a dashboard</p>
+      </div>
+
+      <!-- INSIGHT -->
+      <div class="service-card card-white fade-target">
+        <svg viewBox="36 36 128 127.999" xmlns="http://www.w3.org/2000/svg" aria-label="Magnifying glass implying insight" role="img">
+          <path fill="rgba(0,21,62,0.77)" d="m162.828 157.171-26.254-26.254c8.766-10.072 14.093-23.214 14.093-37.584C150.667 61.72 124.947 36 93.333 36 61.72 36 36 61.72 36 93.333s25.72 57.333 57.333 57.333c14.37 0 27.512-5.326 37.584-14.092l26.254 26.254c.78.781 1.805 1.171 2.828 1.171s2.048-.391 2.828-1.171a3.998 3.998 0 0 0 .001-5.657zM44 93.333C44 66.131 66.131 44 93.333 44c27.203 0 49.334 22.131 49.334 49.333 0 13.481-5.441 25.712-14.235 34.626-.086.072-.179.131-.26.212-.081.081-.14.174-.212.259-8.914 8.795-21.145 14.236-34.627 14.236C66.131 142.667 44 120.536 44 93.333z"></path>
+        </svg>
+        <h3>INSIGHT</h3>
+        <p>Spot the trends and insights that lead to smarter, faster decisions</p>
+      </div>
+
+      <!-- EFFICIENCY -->
+      <div class="service-card card-eucalyptus fade-target">
+        <img src="images/chevron.png" alt="Chevron" class="chevron-img">
+        <h3>EFFICIENCY</h3>
+        <p>Save time and reduce manual effort with AI and automation</p>
+      </div>
+
+      <!-- STRATEGY -->
+      <div class="service-card card-teal fade-target">
+        <svg viewBox="28.999 15 142.001 170" xmlns="http://www.w3.org/2000/svg" aria-label="Upwards pointing arrow implying growth" role="img">
+          <path fill="#00153E" d="M154.096 60.395c-.368 1.101-.766 2.193-1.101 3.303-3.275 10.874-7.125 21.545-11.798 31.891-12.281 27.189-30.168 50.059-53.514 68.627-9.455 7.52-19.983 13.23-31.156 17.77-5.231 2.125-10.652 3.438-16.326 2.889-2.271-.22-4.56-.853-6.7-1.668-2.057-.784-3.474-2.468-4.173-4.62-1.263-3.892 1.236-7.676 5.262-7.584 5.945.136 11.312-1.641 16.615-4.086 22.085-10.185 39.394-26.116 54.211-45.002 14.059-17.92 23.686-38.163 30.728-59.714a1312 1312 0 0 0 3.421-10.618c.269-.847.451-1.722.673-2.584l-.472-.326c-.736.511-1.487 1.002-2.207 1.535-6.128 4.537-12.239 9.097-18.382 13.613-1.268.932-2.572 1.876-3.99 2.531-3.609 1.667-7.568.629-9.727-2.381-2.161-3.013-1.851-7.051.818-10.003a15 15 0 0 1 2.064-1.868c12.223-9.3 23.717-19.46 35.12-29.728 1.795-1.617 3.586-3.257 5.513-4.707 6.389-4.806 13.596-2.982 16.63 4.429 1.36 3.322 2.3 6.909 2.816 10.465 1.093 7.536 2.171 15.112 2.517 22.705.282 6.191-.473 12.433-.857 18.647-.073 1.182-.444 2.385-.885 3.497-1.21 3.057-3.756 4.675-6.707 4.407-2.914-.265-5.08-2.365-5.611-5.69-.499-3.119-.806-6.269-1.223-9.402-.278-2.092-.6-4.179-.903-6.268l-.658-.059Z"></path>
+        </svg>
+        <h3>STRATEGY</h3>
+        <p>Develop practical, evidence-based plans to guide long-term growth</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="about" class="section bg-whisper fade-target visible">
+  <div class="section-inner">
+    <h2 class="section-heading">Who we are</h2>
+    <div class="body-text about-text">
+      <p><strong>Carpe Delta Limited is a data consulting firm founded by Felicity Carpenter.</strong></p>
+      <p>With over 20 years of experience across the aviation, energy, banking and transport sectors, Felicity brings deep expertise in analytics, data-driven strategy, digital transformation and marketing effectiveness.&nbsp;</p>
+      <p>Her career spans senior consultant, management and implementation roles in both New Zealand and the UK and has a track record of demonstrating how data can enable confident, real-world decision-making.&nbsp; She is passionate about simplifying processes, building capability and helping teams use data and AI well.</p>
+    </div>
+    <a href="https://www.linkedin.com/in/felicity-carpenter-nee-noonan-83843864/" target="_blank" rel="noreferrer noopener" class="about-photo-link">
+      <img src="images/Profile photo.jpg" alt="Felicity Carpenter Founder Carpe Delta Data-driven change leader" class="about-photo">
+    </a>
+    <div class="about-quote">
+      <p>"I founded Carpe Delta because I believe data is one of the most valuable assets a business has if it's used well. I've seen what's possible with big budgets and skilled teams, and I believe smaller businesses deserve access to that same level of insight and impact.</p>
+      <p>Smart decisions don't have to be expensive; they just need the right expertise to get off the ground."</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CARPE DELTA -->
+<section id="why" class="section bg-eucalyptus fade-target visible">
+  <div class="section-inner">
+    <h2 class="section-heading">Why "Carpe Delta"?</h2>
+    <div class="body-text">
+      <p><strong>"Carpe" means seize. "Delta" means change.</strong></p>
+      <p>At Carpe Delta, we help you seize change, using your own data to drive it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section id="contact" class="section bg-whisper fade-target visible">
+  <div class="section-inner">
+    <h2 class="section-heading">Get in touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/mbdbzzbo" method="POST">
+      <div class="form-field">
+        <label for="first-name">First name<span aria-hidden="true"> *</span></label>
+        <input type="text" id="first-name" name="first_name" required="" aria-required="true">
+      </div>
+      <div class="form-field">
+        <label for="last-name">Last name<span aria-hidden="true"> *</span></label>
+        <input type="text" id="last-name" name="last_name" required="" aria-required="true">
+      </div>
+      <div class="form-field">
+        <label for="company">Company name</label>
+        <input type="text" id="company" name="company_name">
+      </div>
+      <div class="form-field">
+        <label for="email">Email address<span aria-hidden="true"> *</span></label>
+        <input type="email" id="email" name="email" required="" aria-required="true">
+      </div>
+      <div class="form-field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div class="form-field">
+        <label for="message">How can we help?<span aria-hidden="true"> *</span></label>
+        <textarea id="message" name="how_can_we_help" required="" aria-required="true"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    <p class="form-error" style="font-size: 16px; color: rgb(102, 115, 139); margin-top: 12px;">Something went wrong. Please try again or email us directly at felicity@carpedelta.co.nz</p></form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="#home" class="footer-brand">
+        <img src="images/Magnifying glass logo inverse.png" alt="Carpe Delta logo featuring interlocked C and D letters in a magnifying glass (inverse)" class="footer-logo">
+        <span class="footer-name">Carpe Delta</span>
+      </a>
+      <a href="mailto:felicity@carpedelta.co.nz?subject=Website%20contact" class="btn-footer">Get in touch</a>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:felicity@carpedelta.co.nz?subject=Website%20contact">felicity@carpedelta.co.nz</a>
+      <a href="https://www.carpedelta.co.nz/" target="_self">www.carpedelta.co.nz</a>
+      <a href="./accessibility.html">Accessibility statement</a>
+      <a href="./privacy.html">Privacy policy</a>
+      <a href="https://www.linkedin.com/in/felicity-carpenter-nee-noonan-83843864/" target="_blank" rel="noreferrer noopener" class="footer-linkedin">
+        <img src="images/InBug-White.png" alt="LinkedIn">
+      </a>
+      <p class="footer-copy">© 2025 by Carpe Delta Limited.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Fade-in-up on scroll — Intersection Observer */
+  (function () {
+    var targets = document.querySelectorAll('.fade-target');
+    if (!targets.length) return;
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    targets.forEach(function (el) { io.observe(el); });
+  }());
+</script>
+<script>
+(function () {
+  var form = document.querySelector('.contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        var msg = document.createElement('p');
+        msg.textContent = 'Thank you for getting in touch. We’ll be in touch shortly.';
+        msg.style.cssText = 'font-size:20px;color:#00153E;font-family:Nunito Sans,sans-serif;margin-top:16px;';
+        form.parentNode.insertBefore(msg, form.nextSibling);
+      } else {
+        showError();
+      }
+    })
+    .catch(function () { showError(); });
+
+    function showError() {
+      var existing = form.querySelector('.form-error');
+      if (existing) return;
+      var err = document.createElement('p');
+      err.className = 'form-error';
+      err.textContent = 'Something went wrong. Please try again or email us directly at felicity@carpedelta.co.nz';
+      err.style.cssText = 'font-size:16px;color:#66738B;margin-top:12px;';
+      form.appendChild(err);
+    }
+  });
+}());
+</script>
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', function () {
+    var isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}());
+</script>
+
+
+</body></html>
