@@ -419,18 +419,22 @@
     @media (max-width: 860px) {
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 14px; }
-      .nav-name { font-size: 36px; }
+      .nav-name { font-size: 42px; }
+      .footer-name { font-size: 42px; }
     }
     @media (max-width: 680px) {
       .nav-inner { padding: 0 12px; }
       .nav-links { gap: 10px; }
       .nav-links a { font-size: 12px; white-space: nowrap; }
-      .nav-name { font-size: 28px; }
+      .nav-name { font-size: 34px; }
+      .footer-name { font-size: 34px; }
       .nav-logo { width: 52px; height: 66px; }
     }
     @media (max-width: 520px) {
       .nav-links a { font-size: 0.78rem; }
       .nav-links { gap: 8px; }
+      .nav-name { font-size: 30px; }
+      .footer-name { font-size: 30px; }
     }
 
     /* ===== RESPONSIVE LAYOUT FIXES ===== */
@@ -453,6 +457,25 @@
         height: auto;
         width: 100%;
       }
+      .card-white,
+      .card-eucalyptus {
+        justify-content: center;
+      }
+      .card-white svg,
+      .card-eucalyptus svg,
+      .card-eucalyptus .chevron-img {
+        margin-top: 0;
+      }
+      .card-navy,
+      .card-slate,
+      .card-teal {
+        justify-content: center;
+      }
+      .card-navy svg,
+      .card-slate svg,
+      .card-teal svg {
+        margin-top: 0;
+      }
     }
 
     /* ===== MOBILE (600px) ===== */
@@ -469,15 +492,16 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 85%;
+        width: 94%;
         height: auto;
         min-height: 78%;
         border-radius: 8px;
       }
 
       .hero-inner {
-        width: 85%;
-        padding: 48px 32px;
+        width: 94%;
+        max-width: none;
+        padding: 48px 14px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -485,7 +509,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        font-size: clamp(2rem, 7.5vw, 2.8rem);
         margin-bottom: 16px;
       }
 
@@ -515,6 +539,16 @@
         flex-direction: column;
         gap: 10px;
       }
+
+      .body-text {
+        font-size: 18px;
+      }
+
+      .about-quote p {
+        font-size: 18px;
+      }
+
+      .footer-name { font-size: 28px; }
 
     }
 
